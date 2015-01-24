@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C90F284A1A7433E7001BFF6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90F28491A7433E7001BFF6D /* AppDelegate.swift */; };
+		C90F284D1A7433E7001BFF6D /* Homeward.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C90F284B1A7433E7001BFF6D /* Homeward.xcdatamodeld */; };
+		C90F284F1A7433E7001BFF6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90F284E1A7433E7001BFF6D /* ViewController.swift */; };
+		C90F28521A7433E7001BFF6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C90F28501A7433E7001BFF6D /* Main.storyboard */; };
+		C90F28541A7433E7001BFF6D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C90F28531A7433E7001BFF6D /* Images.xcassets */; };
+		C90F28571A7433E8001BFF6D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90F28551A7433E8001BFF6D /* LaunchScreen.xib */; };
+		C90F28631A7433E8001BFF6D /* HomewardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90F28621A7433E8001BFF6D /* HomewardTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C90F285D1A7433E8001BFF6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C90F283C1A7433E7001BFF6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C90F28431A7433E7001BFF6D;
+			remoteInfo = Homeward;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C90F28441A7433E7001BFF6D /* Homeward.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homeward.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C90F28481A7433E7001BFF6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C90F28491A7433E7001BFF6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C90F284C1A7433E7001BFF6D /* Homeward.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homeward.xcdatamodel; sourceTree = "<group>"; };
+		C90F284E1A7433E7001BFF6D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C90F28511A7433E7001BFF6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C90F28531A7433E7001BFF6D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C90F28561A7433E8001BFF6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C90F285C1A7433E8001BFF6D /* HomewardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomewardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C90F28611A7433E8001BFF6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C90F28621A7433E8001BFF6D /* HomewardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomewardTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C90F28411A7433E7001BFF6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C90F28591A7433E8001BFF6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C90F283B1A7433E7001BFF6D = {
+			isa = PBXGroup;
+			children = (
+				C90F28461A7433E7001BFF6D /* Homeward */,
+				C90F285F1A7433E8001BFF6D /* HomewardTests */,
+				C90F28451A7433E7001BFF6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C90F28451A7433E7001BFF6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C90F28441A7433E7001BFF6D /* Homeward.app */,
+				C90F285C1A7433E8001BFF6D /* HomewardTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C90F28461A7433E7001BFF6D /* Homeward */ = {
+			isa = PBXGroup;
+			children = (
+				C90F28491A7433E7001BFF6D /* AppDelegate.swift */,
+				C90F284E1A7433E7001BFF6D /* ViewController.swift */,
+				C90F28501A7433E7001BFF6D /* Main.storyboard */,
+				C90F28531A7433E7001BFF6D /* Images.xcassets */,
+				C90F28551A7433E8001BFF6D /* LaunchScreen.xib */,
+				C90F284B1A7433E7001BFF6D /* Homeward.xcdatamodeld */,
+				C90F28471A7433E7001BFF6D /* Supporting Files */,
+			);
+			path = Homeward;
+			sourceTree = "<group>";
+		};
+		C90F28471A7433E7001BFF6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C90F28481A7433E7001BFF6D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C90F285F1A7433E8001BFF6D /* HomewardTests */ = {
+			isa = PBXGroup;
+			children = (
+				C90F28621A7433E8001BFF6D /* HomewardTests.swift */,
+				C90F28601A7433E8001BFF6D /* Supporting Files */,
+			);
+			path = HomewardTests;
+			sourceTree = "<group>";
+		};
+		C90F28601A7433E8001BFF6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C90F28611A7433E8001BFF6D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C90F28431A7433E7001BFF6D /* Homeward */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C90F28661A7433E8001BFF6D /* Build configuration list for PBXNativeTarget "Homeward" */;
+			buildPhases = (
+				C90F28401A7433E7001BFF6D /* Sources */,
+				C90F28411A7433E7001BFF6D /* Frameworks */,
+				C90F28421A7433E7001BFF6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Homeward;
+			productName = Homeward;
+			productReference = C90F28441A7433E7001BFF6D /* Homeward.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C90F285B1A7433E8001BFF6D /* HomewardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C90F28691A7433E8001BFF6D /* Build configuration list for PBXNativeTarget "HomewardTests" */;
+			buildPhases = (
+				C90F28581A7433E8001BFF6D /* Sources */,
+				C90F28591A7433E8001BFF6D /* Frameworks */,
+				C90F285A1A7433E8001BFF6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C90F285E1A7433E8001BFF6D /* PBXTargetDependency */,
+			);
+			name = HomewardTests;
+			productName = HomewardTests;
+			productReference = C90F285C1A7433E8001BFF6D /* HomewardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C90F283C1A7433E7001BFF6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "John F Pavley";
+				TargetAttributes = {
+					C90F28431A7433E7001BFF6D = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					C90F285B1A7433E8001BFF6D = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = C90F28431A7433E7001BFF6D;
+					};
+				};
+			};
+			buildConfigurationList = C90F283F1A7433E7001BFF6D /* Build configuration list for PBXProject "Homeward" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C90F283B1A7433E7001BFF6D;
+			productRefGroup = C90F28451A7433E7001BFF6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C90F28431A7433E7001BFF6D /* Homeward */,
+				C90F285B1A7433E8001BFF6D /* HomewardTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C90F28421A7433E7001BFF6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C90F28521A7433E7001BFF6D /* Main.storyboard in Resources */,
+				C90F28571A7433E8001BFF6D /* LaunchScreen.xib in Resources */,
+				C90F28541A7433E7001BFF6D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C90F285A1A7433E8001BFF6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C90F28401A7433E7001BFF6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C90F284F1A7433E7001BFF6D /* ViewController.swift in Sources */,
+				C90F284D1A7433E7001BFF6D /* Homeward.xcdatamodeld in Sources */,
+				C90F284A1A7433E7001BFF6D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C90F28581A7433E8001BFF6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C90F28631A7433E8001BFF6D /* HomewardTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C90F285E1A7433E8001BFF6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C90F28431A7433E7001BFF6D /* Homeward */;
+			targetProxy = C90F285D1A7433E8001BFF6D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C90F28501A7433E7001BFF6D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C90F28511A7433E7001BFF6D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C90F28551A7433E8001BFF6D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C90F28561A7433E8001BFF6D /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C90F28641A7433E8001BFF6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C90F28651A7433E8001BFF6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C90F28671A7433E8001BFF6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Homeward/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C90F28681A7433E8001BFF6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Homeward/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C90F286A1A7433E8001BFF6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HomewardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Homeward.app/Homeward";
+			};
+			name = Debug;
+		};
+		C90F286B1A7433E8001BFF6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HomewardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Homeward.app/Homeward";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C90F283F1A7433E7001BFF6D /* Build configuration list for PBXProject "Homeward" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C90F28641A7433E8001BFF6D /* Debug */,
+				C90F28651A7433E8001BFF6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C90F28661A7433E8001BFF6D /* Build configuration list for PBXNativeTarget "Homeward" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C90F28671A7433E8001BFF6D /* Debug */,
+				C90F28681A7433E8001BFF6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C90F28691A7433E8001BFF6D /* Build configuration list for PBXNativeTarget "HomewardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C90F286A1A7433E8001BFF6D /* Debug */,
+				C90F286B1A7433E8001BFF6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C90F284B1A7433E7001BFF6D /* Homeward.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C90F284C1A7433E7001BFF6D /* Homeward.xcdatamodel */,
+			);
+			currentVersion = C90F284C1A7433E7001BFF6D /* Homeward.xcdatamodel */;
+			path = Homeward.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C90F283C1A7433E7001BFF6D /* Project object */;
+}
