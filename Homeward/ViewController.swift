@@ -100,6 +100,8 @@ class ViewController: UIViewController {
             }
         }
         
+        // need to refactor into swtich statement: There are more than 2 cases here!
+        
         return result
     }
     
