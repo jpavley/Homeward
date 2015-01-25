@@ -11,6 +11,11 @@ import AddressBook
 
 class ViewController: UIViewController {
     
+    // outlets
+    
+    @IBOutlet weak var messageField: UITextField!
+    @IBOutlet weak var messageButton: UIBarButtonItem!
+    
     // constants for errors
     
     private let kErrorNotOkToAccessAddressBook = 2
@@ -38,7 +43,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        addressBookAccessOK = getOkForAddressBook(addressBook)
         
     }
     
@@ -48,71 +52,66 @@ class ViewController: UIViewController {
 
         // NOTE: viewDidAppear is called after the view is visible and will be called multiple times while the app is running and view is visible.  What the user sees at this point is the view.
         
-        // QUESTION: This code makes sure the address book exists, the user is allowing the app to access it, the contact "Homeward" exists, and then kicks off the actuall work of the app. Not all of this code needs be run more than once... or does it? What if the user deletes the contact app? Changes their mind about access? Updates their home address?
-        
+        switch ABAddressBookGetAuthorizationStatus() {
+            
+        case .Authorized:
+            
+            println("App is authorized to access address book")
+            doSomethingGood()
+            
+        case .Denied:
+            
+            println("App is denied access address book")
+            displayErrorAlert(self.kErrorNotOkToAccessAddressBook, tryAgain: false)
+            
+            
+        case .NotDetermined:
+            
+            println("Need to ask user for permission to access address book")
+            ABAddressBookRequestAccessWithCompletion(addressBook, {
+                [weak self] (allowed: Bool, error: CFError!) in
+                
+                let strongSelf = self!
+                if allowed {
+                    println("App is allowed to access address book")
+                    strongSelf.doSomethingGood()
+                } else {
+                    println("App is not allowed to access address book")
+                    strongSelf.displayErrorAlert(strongSelf.kErrorNotOkToAccessAddressBook, tryAgain: false)
+                }
+            })
+            
+        case .Restricted:
+            
+            println("Address book is restricted")
+            displayErrorAlert(self.kErrorNotOkToAccessAddressBook, tryAgain: false)
 
-        if !addressBookAccessOK {
+        default:
             
-            println("addressBookAccessOK = \(addressBookAccessOK)")
-            
-            displayErrorAlert(kErrorNotOkToAccessAddressBook, tryAgain: false)
-            
-        } else {
-            let person: ABAddressBookRef? = getPersonByNameFromAddressBook(addressBook, firstName: "Homeward")
-            
-            if let person: ABRecordRef = person {
-                
-                // use multivalue properties to get at street address, city, state, and zip or what ever is needed to pass to MapKit
-                
-                let contactName = ABRecordCopyValue(person,kABPersonFirstNameProperty).takeRetainedValue() as String
-                
-                println("The name of this contact is \(contactName)")
-                
-            } else {
-                
-                displayErrorAlert(kErrorHomewardContactMissing, tryAgain: true)
-            }
-            
-        }
-        
+            println("Unknown address book auth status")
+            displayErrorAlert(self.kErrorNotOkToAccessAddressBook, tryAgain: false)
+       }
     }
-
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    private func getOkForAddressBook(addressBook: ABAddressBookRef?) -> Bool {
-        
-        println("getOkForAddressBook")
 
-        var result: Bool = false
+    private func doSomethingGood() {
         
-        if ABAddressBookGetAuthorizationStatus() == .Authorized {
+        let person: ABAddressBookRef? = getPersonByNameFromAddressBook(addressBook, firstName: "Homeward")
+        
+        if let person: ABRecordRef = person {
             
-            result = true
-            
+            // use multivalue properties to get at street address, city, state, and zip or what ever is needed to pass to MapKit
+            let contactName = ABRecordCopyValue(person,kABPersonFirstNameProperty).takeRetainedValue() as String
+            println("The name of this contact is \(contactName)")
         } else {
-        
-            ABAddressBookRequestAccessWithCompletion(addressBook) {
-                (allowed: Bool, error: CFError!) in
-                if allowed {
-                    // success
-                    println("User allowed access to addressbook")
-                    result = true
-                } else {
-                    // fail
-                    println("User did not allow access to addressbook")
-                    result = false
-                }
-            }
+            self.displayErrorAlert(self.kErrorHomewardContactMissing, tryAgain: true)
         }
-        
-        // need to refactor into swtich statement: There are more than 2 cases here!
-        
-        return result
     }
-    
+        
     private func getPersonByNameFromAddressBook(addressBook: ABAddressBookRef?, firstName: String?) -> ABRecordRef? {
         
         println("getPersonByNameFromAddressBook")
@@ -136,7 +135,7 @@ class ViewController: UIViewController {
         
         println("displayErrorAlert")
 
-        var errorMessage = "I have no idea what the heck is going on!"
+        var errorMessage = "Unknown"
         var buttonTitle = "Dismiss"
         var handler: UIAlertAction? = nil
         
@@ -144,15 +143,15 @@ class ViewController: UIViewController {
                         
         case kErrorNotOkToAccessAddressBook:
             
-            errorMessage = "If you don't let me access your address book I don't do anything!"
+            errorMessage = "kErrorNotOkToAccessAddressBook"
             
         case kErrorHomewardContactMissing:
             
-            errorMessage = "You need to create a contact with the first name Homeward and your address!"
+            errorMessage = "kErrorHomewardContactMissing"
             
         default:
             
-            println("Hey coder! You are missing an error code!")
+            println("Missing Error Code")
             
         }
         
@@ -167,7 +166,6 @@ class ViewController: UIViewController {
         
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
-
         
     }
 }
