@@ -21,6 +21,10 @@ class ViewController: UIViewController {
     private let kErrorNotOkToAccessAddressBook = 2
     private let kErrorHomewardContactMissing   = 3
     
+    enum HomewardErrorStates {
+        case userRejectedAddressBook, homewardContactMissing, deniedAccessAddressBook, addressBookRestricted, unknownError
+    }
+    
     // get the address book ref when needed
     
     private lazy var addressBook: ABAddressBookRef = {
@@ -62,7 +66,7 @@ class ViewController: UIViewController {
         case .Denied:
             
             println("App is denied access address book")
-            displayErrorAlert(self.kErrorNotOkToAccessAddressBook, tryAgain: false)
+            displayErrorAlert(.deniedAccessAddressBook, tryAgain: false)
             
             
         case .NotDetermined:
@@ -73,23 +77,23 @@ class ViewController: UIViewController {
                 
                 let strongSelf = self!
                 if allowed {
-                    println("App is allowed to access address book")
+                    println("user allowed app to access address book")
                     strongSelf.doSomethingGood()
                 } else {
-                    println("App is not allowed to access address book")
-                    strongSelf.displayErrorAlert(strongSelf.kErrorNotOkToAccessAddressBook, tryAgain: false)
+                    println("user did not allow to access address book")
+                    strongSelf.displayErrorAlert(.userRejectedAddressBook, tryAgain: false)
                 }
             })
             
         case .Restricted:
             
             println("Address book is restricted")
-            displayErrorAlert(self.kErrorNotOkToAccessAddressBook, tryAgain: false)
+            displayErrorAlert(.addressBookRestricted, tryAgain: false)
 
         default:
             
             println("Unknown address book auth status")
-            displayErrorAlert(self.kErrorNotOkToAccessAddressBook, tryAgain: false)
+            displayErrorAlert(.unknownError, tryAgain: false)
        }
     }
         
@@ -108,7 +112,7 @@ class ViewController: UIViewController {
             let contactName = ABRecordCopyValue(person,kABPersonFirstNameProperty).takeRetainedValue() as String
             println("The name of this contact is \(contactName)")
         } else {
-            self.displayErrorAlert(self.kErrorHomewardContactMissing, tryAgain: true)
+            self.displayErrorAlert(.homewardContactMissing, tryAgain: true)
         }
     }
         
@@ -131,7 +135,7 @@ class ViewController: UIViewController {
         return result
     }
     
-    private func displayErrorAlert(errorID: Int, tryAgain: Bool) {
+    private func displayErrorAlert(errorID: HomewardErrorStates, tryAgain: Bool) {
         
         println("displayErrorAlert")
 
@@ -141,17 +145,29 @@ class ViewController: UIViewController {
         
         switch errorID {
                         
-        case kErrorNotOkToAccessAddressBook:
+        case .userRejectedAddressBook:
             
-            errorMessage = "kErrorNotOkToAccessAddressBook"
+            errorMessage = "User did not allow app to access address book."
             
-        case kErrorHomewardContactMissing:
+        case .homewardContactMissing:
             
-            errorMessage = "kErrorHomewardContactMissing"
+            errorMessage = "Homeward contact missing from address book"
+            
+        case .deniedAccessAddressBook:
+            
+            errorMessage = "Homeward denied access to address book"
+            
+        case .addressBookRestricted:
+            
+            errorMessage = "Address book is restricted"
+            
+        case .unknownError:
+            
+            errorMessage = "Unknown error, very mysterious"
             
         default:
             
-            println("Missing Error Code")
+            println("Missing error, very mysterious")
             
         }
         
