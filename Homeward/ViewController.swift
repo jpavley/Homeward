@@ -15,12 +15,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var messageField: UITextField!
     @IBOutlet weak var messageButton: UIBarButtonItem!
-    
-    // constants for errors
-    
-    private let kErrorNotOkToAccessAddressBook = 2
-    private let kErrorHomewardContactMissing   = 3
-    
+        
     enum HomewardErrorStates {
         case userRejectedAddressBook, homewardContactMissing, deniedAccessAddressBook, addressBookRestricted, unknownError
     }
@@ -75,7 +70,9 @@ class ViewController: UIViewController {
             ABAddressBookRequestAccessWithCompletion(addressBook, {
                 [weak self] (allowed: Bool, error: CFError!) in
                 
+                // TODO: Why weak self and strong self?
                 let strongSelf = self!
+                
                 if allowed {
                     println("user allowed app to access address book")
                     strongSelf.accessAddressBook()
@@ -109,8 +106,30 @@ class ViewController: UIViewController {
         if let person: ABRecordRef = person {
             
             // use multivalue properties to get at street address, city, state, and zip or what ever is needed to pass to MapKit
-            let contactName = ABRecordCopyValue(person,kABPersonFirstNameProperty).takeRetainedValue() as String
-            println("The name of this contact is \(contactName)")
+            let addressList: ABMultiValueRef? = ABRecordCopyValue(person, kABPersonAddressProperty)?.takeRetainedValue()
+            
+            // assume first address in the addressList is the one we want
+            let primaryAddressIndex = 0
+            
+            // from the list of address we get a Dictionary which represents the address and its fields
+            let addressDict = ABMultiValueCopyValueAtIndex(addressList, primaryAddressIndex)?.takeRetainedValue() as NSDictionary
+            
+            // All the "as String" enable type conversion from CFString to NSString
+            let street = addressDict[kABPersonAddressStreetKey as String] as String
+            let city = addressDict[kABPersonAddressCityKey as String] as String
+            let state = addressDict[kABPersonAddressStateKey as String] as String
+            let zip = addressDict[kABPersonAddressZIPKey as String] as String
+          
+            println("Street: \(street)")
+            println("Street: \(city)")
+            println("Street: \(state)")
+            println("Street: \(zip)")
+            
+            // TODO: Check if any of these address fields are missing and warn the user!
+            // TODO: Send this address to MapKit!
+            
+            
+            
         } else {
             self.displayErrorAlert(.homewardContactMissing, tryAgain: true)
         }
