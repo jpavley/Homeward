@@ -61,7 +61,7 @@ class ViewController: UIViewController {
         case .Authorized:
             
             println("App is authorized to access address book")
-            doSomethingGood()
+            accessAddressBook()
             
         case .Denied:
             
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
                 let strongSelf = self!
                 if allowed {
                     println("user allowed app to access address book")
-                    strongSelf.doSomethingGood()
+                    strongSelf.accessAddressBook()
                 } else {
                     println("user did not allow to access address book")
                     strongSelf.displayErrorAlert(.userRejectedAddressBook, tryAgain: false)
@@ -102,7 +102,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    private func doSomethingGood() {
+    private func accessAddressBook() {
         
         let person: ABAddressBookRef? = getPersonByNameFromAddressBook(addressBook, firstName: "Homeward")
         
