@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -29,23 +28,21 @@
                                     <navigationItem title="Homeward" id="Ph9-Ou-VwE"/>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RMF-Wo-7Ov">
-                                <rect key="frame" x="16" y="285" width="568" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="56t-x9-SMB">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="S1v-kE-XcM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1ui-tj-LV8"/>
                             <constraint firstAttribute="trailing" secondItem="uLg-ym-ngG" secondAttribute="trailing" id="6cu-sb-gIn"/>
+                            <constraint firstItem="S1v-kE-XcM" firstAttribute="top" secondItem="56t-x9-SMB" secondAttribute="bottom" id="I0I-82-Pmm"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="S1v-kE-XcM" secondAttribute="bottom" id="Jho-XU-tDI"/>
                             <constraint firstAttribute="centerX" secondItem="S1v-kE-XcM" secondAttribute="centerX" id="TQp-Gk-2gO"/>
-                            <constraint firstAttribute="centerY" secondItem="RMF-Wo-7Ov" secondAttribute="centerY" id="dIj-5z-dQc"/>
-                            <constraint firstItem="RMF-Wo-7Ov" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="daq-TC-JE8"/>
-                            <constraint firstItem="RMF-Wo-7Ov" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="eM9-yg-iFZ"/>
-                            <constraint firstAttribute="centerX" secondItem="RMF-Wo-7Ov" secondAttribute="centerX" id="gW5-ps-ekG"/>
                             <constraint firstAttribute="centerX" secondItem="uLg-ym-ngG" secondAttribute="centerX" id="iqF-ax-PPj"/>
+                            <constraint firstItem="56t-x9-SMB" firstAttribute="top" secondItem="uLg-ym-ngG" secondAttribute="bottom" id="keG-Py-zUt"/>
+                            <constraint firstItem="56t-x9-SMB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mIe-PS-cW4"/>
+                            <constraint firstAttribute="trailing" secondItem="56t-x9-SMB" secondAttribute="trailing" id="qxQ-j3-Gx5"/>
                             <constraint firstAttribute="trailing" secondItem="S1v-kE-XcM" secondAttribute="trailing" id="w5u-qp-NTg"/>
                             <constraint firstItem="uLg-ym-ngG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wzj-EQ-hxf"/>
                             <constraint firstItem="uLg-ym-ngG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yjM-Tj-Nxx"/>
@@ -53,7 +50,6 @@
                     </view>
                     <connections>
                         <outlet property="messageButton" destination="XSi-x2-kup" id="Ela-iU-CQa"/>
-                        <outlet property="messageField" destination="RMF-Wo-7Ov" id="wqY-uv-htA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

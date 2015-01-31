@@ -8,13 +8,15 @@
 
 import UIKit
 import AddressBook
+import CoreLocation
+import MapKit
 
 class ViewController: UIViewController {
     
     // outlets
     
-    @IBOutlet weak var messageField: UITextField!
     @IBOutlet weak var messageButton: UIBarButtonItem!
+    @IBOutlet weak var mapView:MKMapView!
         
     enum HomewardErrorStates {
         case userRejectedAddressBook, homewardContactMissing, deniedAccessAddressBook, addressBookRestricted, unknownError
@@ -41,8 +43,6 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -203,4 +203,6 @@ class ViewController: UIViewController {
         presentViewController(alert, animated: true, completion: nil)
         
     }
+    
+    
 }
