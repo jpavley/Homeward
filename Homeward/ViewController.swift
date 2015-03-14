@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var mapView:MKMapView!
         
     enum HomewardErrorStates {
-        case userRejectedAddressBook, homewardContactMissing, deniedAccessAddressBook, addressBookRestricted, unknownError
+        case userRejectedAddressBook, homewardContactMissing, deniedAccessAddressBook, addressBookRestricted, addressFieldsMisssing, unknownError
     }
     
     // get the address book ref when needed
@@ -126,6 +126,13 @@ class ViewController: UIViewController {
             println("Street: \(zip)")
             
             // TODO: Check if any of these address fields are missing and warn the user!
+            
+            let fieldsArry = [street, city, state, zip]
+            
+            if checkForMissingAddressFields(fieldsArry) {
+                self.displayErrorAlert(.addressFieldsMisssing, tryAgain: true)
+            }
+            
             // TODO: Send this address to MapKit!
             
             
@@ -179,6 +186,10 @@ class ViewController: UIViewController {
         case .addressBookRestricted:
             
             errorMessage = "Address book is restricted"
+        
+        case .addressFieldsMisssing:
+            
+            errorMessage = "Contact must contain street, city, state, and zip fields"
             
         case .unknownError:
             
@@ -202,6 +213,10 @@ class ViewController: UIViewController {
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
         
+    }
+    
+    private func checkForMissingAddressFields(fields: [String]) -> Bool {
+        return true
     }
     
     
