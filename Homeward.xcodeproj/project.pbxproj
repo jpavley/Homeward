@@ -15,7 +15,6 @@
 		C90F28571A7433E8001BFF6D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90F28551A7433E8001BFF6D /* LaunchScreen.xib */; };
 		C90F28631A7433E8001BFF6D /* HomewardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90F28621A7433E8001BFF6D /* HomewardTests.swift */; };
 		C90F286F1A743B34001BFF6D /* license in Resources */ = {isa = PBXBuildFile; fileRef = C90F286E1A743B34001BFF6D /* license */; };
-		C90F28711A743BA0001BFF6D /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = C90F28701A743BA0001BFF6D /* readme.md */; };
 		C9965A3A1A7D75C20065DC13 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9965A391A7D75C20065DC13 /* Home.swift */; };
 /* End PBXBuildFile section */
 
@@ -228,7 +227,6 @@
 				C90F284F1A7433E7001BFF6D /* ViewController.swift in Sources */,
 				C90F284D1A7433E7001BFF6D /* Homeward.xcdatamodeld in Sources */,
 				C9965A3A1A7D75C20065DC13 /* Home.swift in Sources */,
-				C90F28711A743BA0001BFF6D /* readme.md in Sources */,
 				C90F284A1A7433E7001BFF6D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
