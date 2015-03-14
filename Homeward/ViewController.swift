@@ -125,15 +125,20 @@ class ViewController: UIViewController {
             println("Street: \(state)")
             println("Street: \(zip)")
             
-            // TODO: Check if any of these address fields are missing and warn the user!
+            // Check if any of these address fields are missing and warn the user!
             
             let fieldsArry = [street, city, state, zip]
             
-            if checkForMissingAddressFields(fieldsArry) {
+            if fieldsMissing(fieldsArry) {
+                
                 self.displayErrorAlert(.addressFieldsMisssing, tryAgain: true)
+                
+            } else {
+                
+                // TODO: Send this address to MapKit!
+               
             }
             
-            // TODO: Send this address to MapKit!
             
             
             
@@ -215,8 +220,15 @@ class ViewController: UIViewController {
         
     }
     
-    private func checkForMissingAddressFields(fields: [String]) -> Bool {
-        return true
+    private func fieldsMissing(fields: [String]) -> Bool {
+        
+        // returns true if a field is missing
+
+        var filteredArray = fields.filter({countElements($0) > 0})
+        
+        // the function passed to filter counts the number of characters in each fields of the array. If any field doesn't have 1 or more characters that field is left out the filtered array
+        
+        return !(filteredArray.count == fields.count)
     }
     
     
