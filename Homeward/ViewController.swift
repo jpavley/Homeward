@@ -135,7 +135,9 @@ class ViewController: UIViewController {
                 
             } else {
                 
-                // TODO: Send this address to MapKit!
+                // Send this address to MapKit!
+                
+                showHomeonMap(fieldsArry)
                
             }
             
@@ -229,6 +231,36 @@ class ViewController: UIViewController {
         // the function passed to filter counts the number of characters in each fields of the array. If any field doesn't have 1 or more characters that field is left out the filtered array
         
         return !(filteredArray.count == fields.count)
+    }
+    
+    private func showHomeonMap(fields:[String]) {
+        
+        let fullAddress = ", ".join(fields)
+        
+        CLGeocoder().geocodeAddressString(fullAddress, completionHandler: {
+            (placemarks, error) in
+            
+            if (error != nil) {
+                println("forward geocode fail: \(error).localizedDescription)")
+                self.displayErrorAlert(.unknownError, tryAgain: true)
+            }
+            
+            var location = placemarks[0].location?.coordinate
+            var span = MKCoordinateSpanMake(0.0625, 0.0625)
+            var region = MKCoordinateRegion(center: location!, span: span)
+            
+            self.mapView.setRegion(region, animated: true)
+            
+            var annotation = MKPointAnnotation()
+            annotation.setCoordinate(location!)
+            annotation.title = "Home"
+            annotation.subtitle = fullAddress
+            
+            self.mapView.addAnnotation(annotation)
+            
+        })
+        
+        
     }
     
     
