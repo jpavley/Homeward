@@ -11,16 +11,28 @@ import AddressBook
 import CoreLocation
 import MapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
-    // outlets
+    // MARK: - outlets
     
     @IBOutlet weak var messageButton: UIBarButtonItem!
     @IBOutlet weak var mapView:MKMapView!
+    
+    //  MARK: - constants
         
     enum HomewardErrorStates {
-        case userRejectedAddressBook, homewardContactMissing, deniedAccessAddressBook, addressBookRestricted, addressFieldsMisssing, unknownError
+        case userRejectedAddressBook, homewardContactMissing, deniedAccessAddressBook, addressBookRestricted, addressFieldsMisssing, locationManagerError, unknownError
     }
+    
+    //  MARK: - properties
+    
+    private let locationManager = CLLocationManager()
+    private var homePoint:CLLocationCoordinate2D?
+    private var currentPoint:CLLocationCoordinate2D?
+    private var distanceToHome:CLLocationDistance = 0
+    private var homeAddress:String = ""
+    
+    //  MARK: - lazy properties
     
     // get the address book ref when needed
     
@@ -31,18 +43,24 @@ class ViewController: UIViewController {
             &error).takeRetainedValue() as ABAddressBookRef
         }()
     
-    // state vars
+    //  MARK: - state vars
     
     var addressBookAccessOK = false
+    
+    //  MARK: - UIView Controller overrides
     
     override func viewDidLoad() {
         
         println("viewDidLoad")
         
-        // NOTE: viewDidLoad is usally called once, when the view controller is loaded into memory and the view is not yet visible. The view itself is not usable at this point. What the user sees at this point is the launch screen.
-        
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // config the location manager
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -98,6 +116,46 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //  MARK: - CLLocationManagerDelegate implementation
+    
+    func locationManager(manager: CLLocationManager!,
+        didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+            println("Authorization status changed to \(status.rawValue)")
+            switch status {
+            case .AuthorizedWhenInUse:
+                locationManager.startUpdatingLocation()
+                mapView.showsUserLocation = true
+                
+            default:
+                locationManager.stopUpdatingLocation()
+                mapView.showsUserLocation = false
+            }
+    }
+
+    
+    func locationManager(manager: CLLocationManager!,
+        didFailWithError error: NSError!) {
+            self.displayErrorAlert(.locationManagerError, tryAgain: true)
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        let newLocation = (locations as [CLLocation])[locations.count - 1]
+        
+        if newLocation.horizontalAccuracy < 0 {
+            // invalid accuracy
+            return
+        }
+        
+        if newLocation.horizontalAccuracy > 100 ||
+            newLocation.verticalAccuracy > 50 {
+                // accuracy radius is so large, we don't want to use it
+                return
+        }
+    }
+    
+
+    //  MARK: - Homeward implementation
 
     private func accessAddressBook() {
         
@@ -198,6 +256,10 @@ class ViewController: UIViewController {
             
             errorMessage = "Contact must contain street, city, state, and zip fields"
             
+        case .locationManagerError:
+            
+            errorMessage = "Unable to get current location"
+            
         case .unknownError:
             
             errorMessage = "Unknown error, very mysterious"
@@ -235,9 +297,9 @@ class ViewController: UIViewController {
     
     private func showHomeonMap(fields:[String]) {
         
-        let fullAddress = ", ".join(fields)
+        homeAddress = ", ".join(fields)
         
-        CLGeocoder().geocodeAddressString(fullAddress, completionHandler: {
+        CLGeocoder().geocodeAddressString(homeAddress, completionHandler: {
             (placemarks, error) in
             
             if (error != nil) {
@@ -245,16 +307,16 @@ class ViewController: UIViewController {
                 self.displayErrorAlert(.unknownError, tryAgain: true)
             }
             
-            var location = placemarks[0].location?.coordinate
+            self.homePoint = placemarks[0].location?.coordinate
             var span = MKCoordinateSpanMake(0.0625, 0.0625)
-            var region = MKCoordinateRegion(center: location!, span: span)
+            var region = MKCoordinateRegion(center: self.homePoint!, span: span)
             
             self.mapView.setRegion(region, animated: true)
             
             var annotation = MKPointAnnotation()
-            annotation.setCoordinate(location!)
+            annotation.setCoordinate(self.homePoint!)
             annotation.title = "Home"
-            annotation.subtitle = fullAddress
+            annotation.subtitle = self.homeAddress
             
             self.mapView.addAnnotation(annotation)
             
