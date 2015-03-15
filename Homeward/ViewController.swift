@@ -152,6 +152,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 // accuracy radius is so large, we don't want to use it
                 return
         }
+        
+        if let homePointValue = homePoint {
+            
+            let current = Home(title:"You Are Here", subtitle:"(Currently)", coordinate: newLocation.coordinate)
+            mapView.addAnnotation(current)
+            
+            let homeLocation = CLLocation(latitude: homePointValue.latitude, longitude: homePointValue.longitude)
+            distanceToHome = newLocation.distanceFromLocation(homeLocation)
+            let distanceToHomeInFeet = distanceToHome * 3.28084
+            let distanceToHomeInMiles = distanceToHomeInFeet * 0.000189394
+            messageButton.title = String("\(distanceToHomeInMiles) miles to home")
+       }
+        
     }
     
 
@@ -198,9 +211,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 showHomeonMap(fieldsArry)
                
             }
-            
-            
-            
             
         } else {
             self.displayErrorAlert(.homewardContactMissing, tryAgain: true)
@@ -311,7 +321,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             var span = MKCoordinateSpanMake(0.0625, 0.0625)
             var region = MKCoordinateRegion(center: self.homePoint!, span: span)
             
-            self.mapView.setRegion(region, animated: true)
+            //self.mapView.setRegion(region, animated: true)
             
             var annotation = MKPointAnnotation()
             annotation.setCoordinate(self.homePoint!)
