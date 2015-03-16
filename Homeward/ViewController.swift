@@ -163,6 +163,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let distanceToHomeInFeet = distanceToHome * 3.28084
             let distanceToHomeInMiles = distanceToHomeInFeet * 0.000189394
             messageButton.title = String("\(distanceToHomeInMiles) miles to home")
+            
+            println("locationManager didUpdateLocations")
        }
         
     }
@@ -329,6 +331,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             annotation.subtitle = self.homeAddress
             
             self.mapView.addAnnotation(annotation)
+            
+            println("added location of home to map")
             
         })
         
