@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 John F Pavley. All rights reserved.
 //
 
+// A spot is an annotated location on a map as in "x marks the spot"
+
 import Foundation
 import MapKit
 import CoreLocation

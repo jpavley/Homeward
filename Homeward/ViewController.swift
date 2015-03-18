@@ -155,7 +155,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         if let homePointValue = homePoint {
             
-            let current = Home(title:"You Are Here", subtitle:"(Currently)", coordinate: newLocation.coordinate)
+            let current = Spot(title:"You Are Here", subtitle:"(Currently)", coordinate: newLocation.coordinate)
             mapView.addAnnotation(current)
             
             let homeLocation = CLLocation(latitude: homePointValue.latitude, longitude: homePointValue.longitude)
