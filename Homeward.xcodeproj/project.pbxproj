@@ -15,7 +15,7 @@
 		C90F28571A7433E8001BFF6D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90F28551A7433E8001BFF6D /* LaunchScreen.xib */; };
 		C90F28631A7433E8001BFF6D /* HomewardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90F28621A7433E8001BFF6D /* HomewardTests.swift */; };
 		C90F286F1A743B34001BFF6D /* license in Resources */ = {isa = PBXBuildFile; fileRef = C90F286E1A743B34001BFF6D /* license */; };
-		C9965A3A1A7D75C20065DC13 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9965A391A7D75C20065DC13 /* Home.swift */; };
+		C9965A3A1A7D75C20065DC13 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9965A391A7D75C20065DC13 /* Spot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +42,7 @@
 		C90F28621A7433E8001BFF6D /* HomewardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomewardTests.swift; sourceTree = "<group>"; };
 		C90F286E1A743B34001BFF6D /* license */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license; sourceTree = "<group>"; };
 		C90F28701A743BA0001BFF6D /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
-		C9965A391A7D75C20065DC13 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		C9965A391A7D75C20065DC13 /* Spot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 			children = (
 				C90F28491A7433E7001BFF6D /* AppDelegate.swift */,
 				C90F284E1A7433E7001BFF6D /* ViewController.swift */,
-				C9965A391A7D75C20065DC13 /* Home.swift */,
+				C9965A391A7D75C20065DC13 /* Spot.swift */,
 				C90F28501A7433E7001BFF6D /* Main.storyboard */,
 				C90F28531A7433E7001BFF6D /* Images.xcassets */,
 				C90F28551A7433E8001BFF6D /* LaunchScreen.xib */,
@@ -226,7 +226,7 @@
 			files = (
 				C90F284F1A7433E7001BFF6D /* ViewController.swift in Sources */,
 				C90F284D1A7433E7001BFF6D /* Homeward.xcdatamodeld in Sources */,
-				C9965A3A1A7D75C20065DC13 /* Home.swift in Sources */,
+				C9965A3A1A7D75C20065DC13 /* Spot.swift in Sources */,
 				C90F284A1A7433E7001BFF6D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  Home.swift
+//  Spot.swift
 //  Homeward
 //
 //  Created by John Pavley (SSD) on 1/31/15.
@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 import CoreLocation
 
-class Home: NSObject, MKAnnotation {
+class Spot: NSObject, MKAnnotation {
     let title: String
     let subtitle: String
     let coordinate: CLLocationCoordinate2D
